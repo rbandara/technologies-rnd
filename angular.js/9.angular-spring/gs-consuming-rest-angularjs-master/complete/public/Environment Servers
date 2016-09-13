@@ -1,0 +1,1806 @@
+Environment Servers
+DEV - dwepdssv01.hq.bn-corp.com (points at the QA Mongo Instance)
+QA - tqapdssv01.bnqa.bn-dev.com
+PROD  (F5 prodny-productdata-fetch.barnesandnoble.com )
+pwepdssv01.prod.bn-web.com: 10.237.81.187
+pwepdssv02.prod.bn-web.com: 10.237.81.188
+Methods
+contributor GET method up to 10 contributors
+contributorlist POST method up to 100 contributors
+products GET method to retrieve up to 10 eans
+productlist POST method to retrieve up to 100 eans
+
+Products
+A get call to retrieve up to 10 eans.
+Request URL: GET   http://[server]:8080/fetch-data-service/product?ids=[comma separated ean list] 
+http://dwepdssv01.hq.bn-corp.com:8080/fetch-data-service/product?ids=9780029227916
+
+Products Response Example:
+
+[ 
+   { 
+      "id":9780029227916,
+      "data":[ 
+         { 
+            "products":{ 
+               "AdultContentCd":null,
+               "AudienceAgeFrom":null,
+               "AudienceAgeTo":null,
+               "AudienceCode":"TRA",
+               "AudienceDesc":"Trade",
+               "Audit":{ 
+                  "PcnProduct1":41060597,
+                  "PcnProduct2":41064186,
+                  "PcnProduct3":37965170,
+                  "PcnProduct4":47227386,
+                  "LastProcCntrlNo":47227386,
+                  "UpdDtime":"2015-02-24T15:29:18.577Z",
+                  "AddDtime":"2014-06-12T21:59:56.440Z"
+               },
+               "AverageRating":null,
+               "BISACFormat":"TP",
+               "BargainTypeCode":null,
+               "Bisac":null,
+               "Bisacs":[ 
+                  { 
+                     "bisacCategoryCode":"BUS000000",
+                     "bisacMajorDesc":"Business & Economics",
+                     "bisacMinorDesc":"BUSINESS & ECONOMICS / General"
+                  },
+                  { 
+                     "bisacCategoryCode":"HIS000000",
+                     "bisacMajorDesc":"History",
+                     "bisacMinorDesc":"HISTORY / General"
+                  }
+               ],
+               "BnTaxId":"101",
+               "BoxSetUnits":null,
+               "BoxSets":null,
+               "CartPromoMask":0,
+               "CatalogNumber":null,
+               "CatalogSourceCd":null,
+               "CategoriesLegacy":{ 
+                  "Items":[ 
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"836473",
+                              "Name":"20th Century American History - Relations - General & Miscellaneous",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"781839",
+                              "Name":"United States History - 20th Century - General & Miscellaneous",
+                              "ordinal":"2"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"831865",
+                        "topLevelName":"United States History",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"912826",
+                              "Name":"U.S. Diplomatic Relations - History",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377665",
+                              "Name":"U.S. International Relations",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"1377660",
+                              "Name":"United States Politics & Government",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"833626",
+                        "topLevelName":"Nonfiction",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2798851",
+                        "leafLevelName":"Print Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":null,
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"153314",
+                        "leafLevelName":"Historical models",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"912826",
+                              "Name":"U.S. Diplomatic Relations - History",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377665",
+                              "Name":"U.S. International Relations",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"914458",
+                              "Name":"Diplomacy & International Relations",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"914455",
+                        "topLevelName":"Politics & Government",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"912826",
+                              "Name":"U.S. Diplomatic Relations - History",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377665",
+                              "Name":"U.S. International Relations",
+                              "ordinal":"2"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"914458",
+                        "topLevelName":"Diplomacy & International Relations",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"836475",
+                              "Name":"U.S. Politics & Government - 1945 to Present",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"831815",
+                              "Name":"United States History - 20th Century - 1945 to 2000",
+                              "ordinal":"2"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"343938",
+                        "leafLevelName":"United States - Politics and government - 1945-1989 - Decision making",
+                        "topLevelId":"831865",
+                        "topLevelName":"United States History",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"904426",
+                              "Name":"U.S. Politics & Government - 1945 - 1989",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377669",
+                              "Name":"U.S. Politics - History",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"1377660",
+                              "Name":"United States Politics & Government",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"343938",
+                        "leafLevelName":"United States - Politics and government - 1945-1989 - Decision making",
+                        "topLevelId":"833626",
+                        "topLevelName":"Nonfiction",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2796683",
+                        "leafLevelName":"Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"836473",
+                              "Name":"20th Century American History - Relations - General & Miscellaneous",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"781839",
+                              "Name":"United States History - 20th Century - General & Miscellaneous",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"831865",
+                              "Name":"United States History",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"831864",
+                        "topLevelName":"History",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"392754",
+                              "Name":"Business - General & Miscellaneous",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"914514",
+                              "Name":"Business - General & Miscellaneous",
+                              "ordinal":"2"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"1306076",
+                        "leafLevelName":"Business * General",
+                        "topLevelId":"914500",
+                        "topLevelName":"Business",
+                        "isDisplayable":"1",
+                        "isSignificant":"1"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"912826",
+                              "Name":"U.S. Diplomatic Relations - History",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377665",
+                              "Name":"U.S. International Relations",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"1377660",
+                              "Name":"United States Politics & Government",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"914455",
+                        "topLevelName":"Politics & Government",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"912826",
+                              "Name":"U.S. Diplomatic Relations - History",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377665",
+                              "Name":"U.S. International Relations",
+                              "ordinal":"2"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"1377660",
+                        "topLevelName":"United States Politics & Government",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"904426",
+                              "Name":"U.S. Politics & Government - 1945 - 1989",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377669",
+                              "Name":"U.S. Politics - History",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"1377660",
+                              "Name":"United States Politics & Government",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"343938",
+                        "leafLevelName":"United States - Politics and government - 1945-1989 - Decision making",
+                        "topLevelId":"914455",
+                        "topLevelName":"Politics & Government",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"904426",
+                              "Name":"U.S. Politics & Government - 1945 - 1989",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377669",
+                              "Name":"U.S. Politics - History",
+                              "ordinal":"2"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"343938",
+                        "leafLevelName":"United States - Politics and government - 1945-1989 - Decision making",
+                        "topLevelId":"1377660",
+                        "topLevelName":"United States Politics & Government",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"912826",
+                              "Name":"U.S. Diplomatic Relations - History",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"1377665",
+                              "Name":"U.S. International Relations",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"914458",
+                              "Name":"Diplomacy & International Relations",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"341882",
+                        "leafLevelName":"United States->Foreign relations->1945-1989->Decision making",
+                        "topLevelId":"833626",
+                        "topLevelName":"Nonfiction",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     { 
+                        "category":[ 
+                           { 
+                              "_id":"836475",
+                              "Name":"U.S. Politics & Government - 1945 to Present",
+                              "ordinal":"1"
+                           },
+                           { 
+                              "_id":"831815",
+                              "Name":"United States History - 20th Century - 1945 to 2000",
+                              "ordinal":"2"
+                           },
+                           { 
+                              "_id":"831865",
+                              "Name":"United States History",
+                              "ordinal":"3"
+                           }
+                        ],
+                        "type":"Level 1 NonFiction",
+                        "typeId":"13",
+                        "LeafLevelId":"343938",
+                        "leafLevelName":"United States - Politics and government - 1945-1989 - Decision making",
+                        "topLevelId":"831864",
+                        "topLevelName":"History",
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     }
+                  ]
+               },
+               "CategoryCode":"A",
+               "ClassCode":"15",
+               "Color":null,
+               "CommerceCd":1,
+               "CommunityEligibilityId":1,
+               "CompanyId":856,
+               "CompanyName":"Free Press",
+               "CompanyType":null,
+               "ConsignmentCd":"N",
+               "ContentRating":null,
+               "Contributors":[ 
+                  { 
+                     "ContributorId":0,
+                     "AuthorCode":159422,
+                     "DisplayOrder":1,
+                     "FullName":"Richard E. Neustadt",
+                     "LastName":"Neustadt",
+                     "FirstName":"Richard E.",
+                     "Prefix":null,
+                     "Suffix":null,
+                     "JobId":1,
+                     "JobName":"Author",
+                     "IsSignificant":true,
+                     "Role":null,
+                     "JobType":null,
+                     "HasBio":false,
+                     "HasInterview":false,
+                     "HasMusic":false,
+                     "HasVideo":false
+                  },
+                  { 
+                     "ContributorId":0,
+                     "AuthorCode":235299,
+                     "DisplayOrder":2,
+                     "FullName":"Ernest R. May",
+                     "LastName":"May",
+                     "FirstName":"Ernest R.",
+                     "Prefix":null,
+                     "Suffix":null,
+                     "JobId":10,
+                     "JobName":"With",
+                     "IsSignificant":false,
+                     "Role":null,
+                     "JobType":null,
+                     "HasBio":false,
+                     "HasInterview":false,
+                     "HasMusic":false,
+                     "HasVideo":false
+                  }
+               ],
+               "CostListPercent":null,
+               "CostSellPercent":null,
+               "CostShipPromoCode":"Y",
+               "CountryOfOrigin":null,
+               "CurrentIssueEan":null,
+               "DcMerchNum":64188,
+               "DcVendorName":null,
+               "DeptCode":"1 ",
+               "DeviceIDs":null,
+               "DigitalBookCode":"N",
+               "DigitalFulfillmentCode":"N",
+               "Dimensions":[ 
+                  { 
+                     "Key":"depth",
+                     "Value":"0.90"
+                  },
+                  { 
+                     "Key":"dimensionUnit",
+                     "Value":"INH"
+                  },
+                  { 
+                     "Key":"height",
+                     "Value":"9.10"
+                  },
+                  { 
+                     "Key":"volumeUnit",
+                     "Value":"INQ"
+                  },
+                  { 
+                     "Key":"weight",
+                     "Value":"0.81"
+                  },
+                  { 
+                     "Key":"weightUnit",
+                     "Value":"LB"
+                  },
+                  { 
+                     "Key":"width",
+                     "Value":"6.10"
+                  }
+               ],
+               "DisplayEan":null,
+               "DisplayEditionDescription":"Simon & Schuster",
+               "DisplayFormat":"",
+               "DisplayPreviewCode":null,
+               "DistributionCode":"BK",
+               "DvdRegionCode":null,
+               "EbookEan":9781451667622,
+               "EditionDescription":"Simon & Schuster",
+               "EditionNumber":1,
+               "ExtendedStoreSubject":"B1-150AA",
+               "ExternalProductID":null,
+               "FinanceCode":"BK",
+               "FirstOnSaleDate":"1988-02-15T05:00:00.000Z",
+               "FormatId":121,
+               "FulfillmentCode":"IS",
+               "GeneralProperties":null,
+               "GiftWrapMessageId":3,
+               "GoogleCategoryCd":"Media > Books",
+               "HasGameNote":0,
+               "HasImage":null,
+               "HasSoundClip":0,
+               "IngestionDCMerchNum":null,
+               "IsAdditionalCharge":false,
+               "IsClassical":false,
+               "IsContentQuestioned":null,
+               "IsFreeProduct":false,
+               "IsRentable":"N",
+               "IsStoreInventory":true,
+               "Isbn10":"0029227917",
+               "ItemQuantity":null,
+               "LanguageCode":"ENG",
+               "LanguageDesc":"English",
+               "LargePrintInd":"N",
+               "Lexile":"",
+               "LinkedProducts":[ 
+                  { 
+                     "Key":"ebookEAN",
+                     "Value":"9781451667622"
+                  }
+               ],
+               "ListEligibleID":1,
+               "MPFinanceCode":"9B",
+               "MPShipRestrictionCode":null,
+               "MPShippingCode":"1B",
+               "MediaClips":null,
+               "MerchandiseObjectID":null,
+               "NookExtrasProperties":null,
+               "NotSafeContentFlag":null,
+               "NumberOfPages":352,
+               "ObjectId":1,
+               "OldWorkId":1111508544,
+               "OriginalEAN":null,
+               "OriginalReleaseDate":null,
+               "ParentFormat":"Paperback",
+               "ParentSecondaryFormat":"Paperback",
+               "Partners":[ 
+                  { 
+                     "PartnerId":1,
+                     "Is3G":null
+                  },
+                  { 
+                     "PartnerId":2,
+                     "Is3G":null
+                  },
+                  { 
+                     "PartnerId":8,
+                     "Is3G":null
+                  }
+               ],
+               "Platform":null,
+               "ProductCode":"BK",
+               "ProductFillCode":"B",
+               "ProductFormatId":121,
+               "ProductMessage":null,
+               "ProductSubTypeCode":"B1",
+               "ProductTypeID":1,
+               "PromotionId":null,
+               "Promotions":null,
+               "PubStatusCode":"ACT",
+               "PubTrackCode":206,
+               "PublicDomainCd":null,
+               "PublicationDate":"1988-01-28T05:00:00.000Z",
+               "QuantityLimit":null,
+               "RentalRateId":"16",
+               "RentalRates":null,
+               "ReplacedEan":null,
+               "RunTime":null,
+               "SalesModel":null,
+               "SalesTaxCode":"BK",
+               "SearchCode":"TP",
+               "SecondaryFormat":"Paperback",
+               "SellerId":null,
+               "SellerSKU":null,
+               "SeriesId":null,
+               "SeriesNumber":null,
+               "SeriesTitle":null,
+               "ServiceShipPromoCode":"Y",
+               "ShipRestrictionCode":0,
+               "ShippingCode":"BK",
+               "ShippingCost":"1.0000",
+               "Size":null,
+               "SkuType":"book",
+               "SoldBy":null,
+               "SortFormatId":1000,
+               "Source":"T",
+               "StreetDate":null,
+               "SubCategoryCode":"A",
+               "SubPriceStartDate":null,
+               "SubTitle":null,
+               "SubjectCode":"150",
+               "SubscriptionEan":null,
+               "TextbookCode":"R",
+               "TextbookProperties":null,
+               "Title":"Thinking in Time: The Uses of History for Decision Makers",
+               "TitlePrefix":null,
+               "TitleSeq":322764,
+               "TotalRatings":null,
+               "Tracks":null,
+               "UrlKeywords":"Thinking-in-Time/Richard-E-Neustadt",
+               "UsedTypeCode":"N",
+               "VendorDesc":null,
+               "VendorDistribId":null,
+               "VendorTypeId":null,
+               "VideoAlternateTitles":null,
+               "VideoAspectRatios":null,
+               "VideoAudioLanguage":null,
+               "VideoEditionNames":null,
+               "VideoScreenTypes":null,
+               "VideoSoundTypes":null,
+               "VideoSubtitleLanguages":null,
+               "WLPartnerMask":131,
+               "WorkId":1111508544,
+               "_id":9780029227916,
+               "ean":9780029227916,
+               "rentInvControlCd":"X"
+            }
+         },
+         { 
+            "volatileData":{ 
+               "Audit":{ 
+                  "PcnVolatiledata":47183933,
+                  "PcnBusinessRule":123456,
+                  "LastProcCntrlNo":47183933,
+                  "UpdDtime":"2015-02-24T02:17:49.787Z",
+                  "AddDtime":"2014-06-12T21:34:22.161Z"
+               },
+               "BaseRentalPrice":null,
+               "BnPrice":17.99,
+               "Cost":15.99,
+               "CustomerSavesAmt":2,
+               "CustomerSavesPct":10,
+               "DeliveryCode":5,
+               "DiscountCode":13000000,
+               "ExpectedShipDate":null,
+               "FeedFilter":4,
+               "FeedFilterDate":"2014-06-07T15:54:42.100Z",
+               "ForSale":"W",
+               "IndexInSearch":"A",
+               "InventoryControl":"A",
+               "IsFree":false,
+               "LocationMask":"4611686086073922354",
+               "MSRP":19.99,
+               "MarketPlaceAvailable":true,
+               "MinMarketplacePrice":12.32,
+               "MinMarketplacePriceNew":null,
+               "ProductDisplayFlag":"Y",
+               "RetailPrice":19.99,
+               "ShippableFlag":"Y",
+               "WebFlag":"Y",
+               "_id":9780029227916,
+               "ean":9780029227916,
+               "isDisabled":false
+            }
+         },
+         { 
+            "images":{ 
+               "Audit":{ 
+                  "LastProcCntrlNo":36649919,
+                  "UpdDtime":"2014-09-19T18:06:07.755Z",
+                  "AddDtime":"2014-09-19T18:06:07.755Z"
+               },
+               "DynamicImages":"<dynamicImages><image imageId=\"55005088\" position=\"0\" version=\"1\" width=\"258\" height=\"400\" format=\"JPG\" imageKind=\"Front\" imageTypeId=\"1\" isExported=\"1\" /></dynamicImages>",
+               "Images":[ 
+                  { 
+                     "ImageId":55005088,
+                     "PositionId":0,
+                     "TypeId":1,
+                     "Height":400,
+                     "Width":258,
+                     "Version":1,
+                     "Kind":"Front",
+                     "Extension":"JPG",
+                     "isExported":true
+                  }
+               ],
+               "Source":"T",
+               "_id":9780029227916,
+               "ean":9780029227916
+            }
+         },
+         { 
+            "productCategories":{ 
+               "Audit":{ 
+                  "LastProcCntrlNo":45824552,
+                  "UpdDtime":"2015-02-06T12:20:10.883Z",
+                  "AddDtime":"2014-09-10T01:07:39.929Z"
+               },
+               "ProductCategoryLeafList":[ 
+                  { 
+                     "categoryId":"2796683",
+                     "categoryName":"Books",
+                     "typeId":128
+                  },
+                  { 
+                     "categoryId":"2798851",
+                     "categoryName":"Print Books",
+                     "typeId":128
+                  },
+                  { 
+                     "categoryId":"836475",
+                     "categoryName":"U.S. Politics & Government - 1945 to Present",
+                     "typeId":12
+                  },
+                  { 
+                     "categoryId":"392754",
+                     "categoryName":"Business - General & Miscellaneous",
+                     "typeId":12
+                  },
+                  { 
+                     "categoryId":"836473",
+                     "categoryName":"20th Century American History - Relations - General & Miscellaneous",
+                     "typeId":12
+                  },
+                  { 
+                     "categoryId":"904426",
+                     "categoryName":"U.S. Politics & Government - 1945 - 1989",
+                     "typeId":12
+                  },
+                  { 
+                     "categoryId":"912826",
+                     "categoryName":"U.S. Diplomatic Relations - History",
+                     "typeId":12
+                  }
+               ],
+               "ProductCategoryList":[ 
+                  { 
+                     "categoryId":"1306076",
+                     "isSignificant":true
+                  },
+                  { 
+                     "categoryId":"153314",
+                     "isSignificant":false
+                  },
+                  { 
+                     "categoryId":"2796683",
+                     "isSignificant":false
+                  },
+                  { 
+                     "categoryId":"2798851",
+                     "isSignificant":false
+                  },
+                  { 
+                     "categoryId":"341882",
+                     "isSignificant":false
+                  },
+                  { 
+                     "categoryId":"343938",
+                     "isSignificant":false
+                  },
+                  { 
+                     "categoryId":"91739",
+                     "isSignificant":true
+                  }
+               ],
+               "_id":9780029227916,
+               "ean":9780029227916
+            }
+         },
+         { 
+            "commentaries":{ 
+               "_id":9780029227916,
+               "ean":9780029227916,
+               "Commentaries":"<commentaries><commentary type=\"Review\" linkText=\"From The Critics\" typeId=\"1002\" abbr=\"REV\" maxToDisplay=\"255\" displayOrder=\"1\" authorName=\"Library Journal\" sourceName=\"Library Journal\">Two professors of government analyze both political disasters and successes of recent decades to provide telling lessons on how to use history to improve decision-making. A dozen case studies are drawn in pungent detail both from the record and from backstage information gained from top officials. Sadly, the authors can safely assume a vast ignorance of history in Washington and the media. They make painfully clear that attention to particulars matters, that marginal improvement is worth seeking, and that a little thought is useful. They repeatedly spell out how to examine a situation to help decide what to do today to improve the prospect for tomorrow. An absorbing book, this would be of great benefit to those in Washington, if only they would heed it. For most libraries. Milton Meltzer, New York\r\n</commentary></commentaries>",
+               "Source":"T",
+               "SearchKeywords":null,
+               "Audit":{ 
+                  "LastProcCntrlNo":40014716,
+                  "UpdDtime":"2014-08-03T17:18:31.634Z",
+                  "AddDtime":"2014-08-03T17:18:31.634Z"
+               }
+            }
+         }
+      ]
+   }
+]
+
+
+productlist
+Method to fetch up to 100 products.
+Request URL: POST http://[server]:9899/productlist
+Example: http://dwepdssv01.hq.bn-corp.com:9899/productlist
+
+productlist Request header
+
+content-type: application/x-www-form-urlencoded
+
+productlist Request Body
+
+ids=9780000000026,9780000000033,12345
+
+productlist Response Example
+
+[  
+   {  
+      "id":12345,
+      "data":[  
+         {  
+            "error":"Id [12345] can not be found in collection products"
+         },
+         {  
+            "error":"Id [12345] can not be found in collection volatileData"
+         },
+         {  
+            "error":"Id/Ids [12345] can not be found in collection images"
+         },
+         {  
+            "error":"Id [12345] can not be found in collection productCategories"
+         }
+      ]
+   },
+   {  
+      "id":9780000000033,
+      "data":[  
+         {  
+            "products":{  
+               "AdultContentCd":null,
+               "AudienceAgeFrom":"10.00",
+               "AudienceAgeTo":"10.00",
+               "AudienceCode":"JUV",
+               "AudienceDesc":"Juvenile",
+               "Audit":{  
+                  "PcnProduct1":46831140,
+                  "PcnProduct2":46831139,
+                  "PcnProduct3":38100907,
+                  "PcnProduct4":33611850,
+                  "LastProcCntrlNo":46831140,
+                  "UpdDtime":"2015-02-19T20:33:22.043Z",
+                  "AddDtime":"2014-06-13T18:57:50.173Z"
+               },
+               "AverageRating":null,
+               "BISACFormat":"TC",
+               "BargainTypeCode":null,
+               "Bisac":null,
+               "Bisacs":[  
+                  {  
+                     "bisacCategoryCode":"JUV000000",
+                     "bisacMajorDesc":"Juvenile / Children's Fiction",
+                     "bisacMinorDesc":"JUVENILE FICTION / General"
+                  },
+                  {  
+                     "bisacCategoryCode":"JUV030020",
+                     "bisacMajorDesc":"Juvenile / Children's Fiction",
+                     "bisacMinorDesc":"JUVENILE FICTION / People & Places / Asia"
+                  }
+               ],
+               "BnTaxId":"101",
+               "BoxSetUnits":null,
+               "BoxSets":null,
+               "CartPromoMask":274945015808,
+               "CatalogNumber":null,
+               "CatalogSourceCd":null,
+               "CategoriesLegacy":{  
+                  "Items":[  
+                     {  
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2796687",
+                        "leafLevelName":"Kids' Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     {  
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2798851",
+                        "leafLevelName":"Print Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     {  
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2796683",
+                        "leafLevelName":"Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     }
+                  ]
+               },
+               "CategoryCode":"A",
+               "ClassCode":"15",
+               "Color":null,
+               "CommerceCd":0,
+               "CommunityEligibilityId":0,
+               "CompanyId":306173,
+               "CompanyName":"India Research Press",
+               "CompanyType":null,
+               "ConsignmentCd":null,
+               "ContentRating":null,
+               "Contributors":[  
+                  {  
+                     "ContributorId":0,
+                     "AuthorCode":381813,
+                     "DisplayOrder":1,
+                     "FullName":"Ilyon",
+                     "LastName":"Ilyon",
+                     "FirstName":null,
+                     "Prefix":null,
+                     "Suffix":null,
+                     "JobId":1,
+                     "JobName":"Author",
+                     "IsSignificant":true,
+                     "Role":null,
+                     "JobType":null,
+                     "HasBio":false,
+                     "HasInterview":false,
+                     "HasMusic":false,
+                     "HasVideo":false
+                  }
+               ],
+               "CostListPercent":null,
+               "CostSellPercent":null,
+               "CostShipPromoCode":"Y",
+               "CountryOfOrigin":null,
+               "CurrentIssueEan":null,
+               "DcMerchNum":29451,
+               "DcVendorName":null,
+               "DeptCode":"6 ",
+               "DeviceIDs":null,
+               "DigitalBookCode":"N",
+               "DigitalFulfillmentCode":"N",
+               "Dimensions":null,
+               "DisplayEan":null,
+               "DisplayEditionDescription":null,
+               "DisplayFormat":"",
+               "DisplayPreviewCode":null,
+               "DistributionCode":"BK",
+               "DvdRegionCode":null,
+               "EbookEan":null,
+               "EditionDescription":null,
+               "EditionNumber":null,
+               "ExtendedStoreSubject":"B0-604AA",
+               "ExternalProductID":null,
+               "FinanceCode":"BK",
+               "FirstOnSaleDate":"1997-04-17T04:00:00.000Z",
+               "FormatId":118,
+               "FulfillmentCode":"IS",
+               "GeneralProperties":null,
+               "GiftWrapMessageId":2,
+               "GoogleCategoryCd":"Media > Books",
+               "HasGameNote":0,
+               "HasImage":null,
+               "HasSoundClip":0,
+               "IngestionDCMerchNum":null,
+               "IsAdditionalCharge":false,
+               "IsClassical":false,
+               "IsContentQuestioned":null,
+               "IsFreeProduct":false,
+               "IsRentable":null,
+               "IsStoreInventory":false,
+               "Isbn10":"0000000035",
+               "ItemQuantity":null,
+               "LanguageCode":"AFR",
+               "LanguageDesc":"Afrikaans",
+               "LargePrintInd":"N",
+               "Lexile":"",
+               "LinkedProducts":null,
+               "ListEligibleID":1,
+               "MPFinanceCode":"9B",
+               "MPShipRestrictionCode":null,
+               "MPShippingCode":"1B",
+               "MediaClips":null,
+               "MerchandiseObjectID":null,
+               "NookExtrasProperties":null,
+               "NotSafeContentFlag":null,
+               "NumberOfPages":289,
+               "ObjectId":1,
+               "OldWorkId":1000676293,
+               "OriginalEAN":null,
+               "OriginalReleaseDate":null,
+               "ParentFormat":"Hardcover",
+               "ParentSecondaryFormat":"Hardcover",
+               "Partners":[  
+                  {  
+                     "PartnerId":1,
+                     "Is3G":null
+                  },
+                  {  
+                     "PartnerId":2,
+                     "Is3G":null
+                  },
+                  {  
+                     "PartnerId":8,
+                     "Is3G":null
+                  }
+               ],
+               "Platform":null,
+               "ProductCode":"BK",
+               "ProductFillCode":"B",
+               "ProductFormatId":118,
+               "ProductMessage":"Kids' Club Eligible.  <a href=\"https://kids.barnesandnoble.com/kidsclub\">See More Details.</a>",
+               "ProductSubTypeCode":"B0",
+               "ProductTypeID":35,
+               "PromotionId":0,
+               "Promotions":[  
+                  {  
+                     "PromotionId":954,
+                     "StartDate":"2015-02-19T20:24:54.000Z",
+                     "EndDate":"9998-12-31T04:59:59.000Z"
+                  },
+                  {  
+                     "PromotionId":1123,
+                     "StartDate":"2015-02-19T20:24:54.000Z",
+                     "EndDate":"9998-12-31T04:59:59.000Z"
+                  }
+               ],
+               "PubStatusCode":"OP",
+               "PubTrackCode":202,
+               "PublicDomainCd":null,
+               "PublicationDate":"1997-04-17T04:00:00.000Z",
+               "QuantityLimit":null,
+               "RentalRateId":null,
+               "RentalRates":null,
+               "ReplacedEan":null,
+               "RunTime":null,
+               "SalesModel":null,
+               "SalesTaxCode":"BK",
+               "SearchCode":"HC",
+               "SecondaryFormat":"Hardcover",
+               "SellerId":null,
+               "SellerSKU":null,
+               "SeriesId":null,
+               "SeriesNumber":null,
+               "SeriesTitle":null,
+               "ServiceShipPromoCode":"Y",
+               "ShipRestrictionCode":0,
+               "ShippingCode":"BK",
+               "ShippingCost":"1.0000",
+               "Size":null,
+               "SkuType":"book",
+               "SoldBy":null,
+               "SortFormatId":1200,
+               "Source":"T",
+               "StreetDate":null,
+               "SubCategoryCode":"A",
+               "SubPriceStartDate":null,
+               "SubTitle":null,
+               "SubjectCode":"604",
+               "SubscriptionEan":null,
+               "TextbookCode":null,
+               "TextbookProperties":null,
+               "Title":"King Munmu of Silla: A Korean Ruler Who United His Country",
+               "TitlePrefix":null,
+               "TitleSeq":676293,
+               "TotalRatings":null,
+               "Tracks":null,
+               "UrlKeywords":"King-Munmu-of-Silla/Ilyon",
+               "UsedTypeCode":"N",
+               "VendorDesc":null,
+               "VendorDistribId":null,
+               "VendorTypeId":null,
+               "VideoAlternateTitles":null,
+               "VideoAspectRatios":null,
+               "VideoAudioLanguage":null,
+               "VideoEditionNames":null,
+               "VideoScreenTypes":null,
+               "VideoSoundTypes":null,
+               "VideoSubtitleLanguages":null,
+               "WLPartnerMask":131,
+               "WorkId":1000676293,
+               "_id":9780000000033,
+               "ean":9780000000033,
+               "rentInvControlCd":null
+            }
+         },
+         {  
+            "volatileData":{  
+               "Audit":{  
+                  "PcnVolatiledata":123456,
+                  "PcnBusinessRule":123456,
+                  "LastProcCntrlNo":123456,
+                  "UpdDtime":"2014-08-05T18:16:27.625Z",
+                  "AddDtime":"2014-06-13T12:37:05.712Z"
+               },
+               "BaseRentalPrice":null,
+               "BnPrice":70.75,
+               "Cost":53,
+               "CustomerSavesAmt":0,
+               "CustomerSavesPct":0,
+               "DeliveryCode":4,
+               "DiscountCode":7000000,
+               "ExpectedShipDate":null,
+               "FeedFilter":4,
+               "FeedFilterDate":"2014-06-07T15:53:59.360Z",
+               "ForSale":"W",
+               "IndexInSearch":"A",
+               "InventoryControl":"A",
+               "IsFree":false,
+               "LocationMask":"4611686018427387904",
+               "MSRP":70.75,
+               "MarketPlaceAvailable":true,
+               "MinMarketplacePrice":5,
+               "MinMarketplacePriceNew":null,
+               "ProductDisplayFlag":"Y",
+               "RetailPrice":70.75,
+               "ShippableFlag":"N",
+               "WebFlag":"N",
+               "_id":9780000000033,
+               "ean":9780000000033,
+               "isDisabled":false
+            }
+         },
+         {  
+            "error":"Id/Ids [9780000000033] can not be found in collection images"
+         },
+         {  
+            "productCategories":{  
+               "Audit":{  
+                  "LastProcCntrlNo":46831259,
+                  "UpdDtime":"2015-02-19T20:33:15.897Z",
+                  "AddDtime":"2014-09-10T01:03:54.475Z"
+               },
+               "ProductCategoryLeafList":[  
+                  {  
+                     "categoryId":"p1123",
+                     "categoryName":"Kids' Club Eligible",
+                     "typeId":128
+                  },
+                  {  
+                     "categoryId":"2796683",
+                     "categoryName":"Books",
+                     "typeId":128
+                  },
+                  {  
+                     "categoryId":"p954",
+                     "categoryName":"Kids' Club Rewards",
+                     "typeId":128
+                  },
+                  {  
+                     "categoryId":"2796687",
+                     "categoryName":"Kids' Books",
+                     "typeId":128
+                  },
+                  {  
+                     "categoryId":"2798851",
+                     "categoryName":"Print Books",
+                     "typeId":128
+                  }
+               ],
+               "ProductCategoryList":[  
+                  {  
+                     "categoryId":"2796683",
+                     "isSignificant":false
+                  },
+                  {  
+                     "categoryId":"2796687",
+                     "isSignificant":false
+                  },
+                  {  
+                     "categoryId":"2798851",
+                     "isSignificant":false
+                  },
+                  {  
+                     "categoryId":"p1123",
+                     "isSignificant":false
+                  },
+                  {  
+                     "categoryId":"p954",
+                     "isSignificant":false
+                  }
+               ],
+               "_id":9780000000033,
+               "ean":9780000000033
+            }
+         }
+      ]
+   },
+   {  
+      "id":9780000000026,
+      "data":[  
+         {  
+            "products":{  
+               "AdultContentCd":null,
+               "AudienceAgeFrom":null,
+               "AudienceAgeTo":null,
+               "AudienceCode":"TRA",
+               "AudienceDesc":"Trade",
+               "Audit":{  
+                  "PcnProduct1":33554541,
+                  "PcnProduct2":35843913,
+                  "PcnProduct3":38100907,
+                  "PcnProduct4":33611850,
+                  "LastProcCntrlNo":38100907,
+                  "UpdDtime":"2014-10-15T11:03:16.432Z",
+                  "AddDtime":"2014-06-13T18:57:41.219Z"
+               },
+               "AverageRating":null,
+               "BISACFormat":null,
+               "BargainTypeCode":null,
+               "Bisac":null,
+               "Bisacs":null,
+               "BnTaxId":"101",
+               "BoxSetUnits":null,
+               "BoxSets":null,
+               "CartPromoMask":0,
+               "CatalogNumber":null,
+               "CatalogSourceCd":null,
+               "CategoriesLegacy":{  
+                  "Items":[  
+                     {  
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2796683",
+                        "leafLevelName":"Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     },
+                     {  
+                        "category":null,
+                        "type":"Site Navigation",
+                        "typeId":"128",
+                        "LeafLevelId":"2798851",
+                        "leafLevelName":"Print Books",
+                        "topLevelId":null,
+                        "topLevelName":null,
+                        "isDisplayable":"1",
+                        "isSignificant":"0"
+                     }
+                  ]
+               },
+               "CategoryCode":null,
+               "ClassCode":null,
+               "Color":null,
+               "CommerceCd":1,
+               "CommunityEligibilityId":0,
+               "CompanyId":10189,
+               "CompanyName":"Random House, Incorporated",
+               "CompanyType":null,
+               "ConsignmentCd":null,
+               "ContentRating":null,
+               "Contributors":[  
+                  {  
+                     "ContributorId":0,
+                     "AuthorCode":5560164,
+                     "DisplayOrder":1,
+                     "FullName":"Order Standing",
+                     "LastName":"Standing",
+                     "FirstName":"Order",
+                     "Prefix":null,
+                     "Suffix":null,
+                     "JobId":1,
+                     "JobName":"Author",
+                     "IsSignificant":true,
+                     "Role":null,
+                     "JobType":null,
+                     "HasBio":false,
+                     "HasInterview":false,
+                     "HasMusic":false,
+                     "HasVideo":false
+                  },
+                  {  
+                     "ContributorId":0,
+                     "AuthorCode":1152139,
+                     "DisplayOrder":3,
+                     "FullName":"Louis Round Wilson",
+                     "LastName":"Wilson",
+                     "FirstName":"Louis Round",
+                     "Prefix":null,
+                     "Suffix":null,
+                     "JobId":1,
+                     "JobName":"Author",
+                     "IsSignificant":false,
+                     "Role":null,
+                     "JobType":null,
+                     "HasBio":false,
+                     "HasInterview":false,
+                     "HasMusic":false,
+                     "HasVideo":false
+                  }
+               ],
+               "CostListPercent":null,
+               "CostSellPercent":null,
+               "CostShipPromoCode":null,
+               "CountryOfOrigin":null,
+               "CurrentIssueEan":null,
+               "DcMerchNum":null,
+               "DcVendorName":null,
+               "DeptCode":"1 ",
+               "DeviceIDs":null,
+               "DigitalBookCode":"N",
+               "DigitalFulfillmentCode":"N",
+               "Dimensions":null,
+               "DisplayEan":null,
+               "DisplayEditionDescription":null,
+               "DisplayFormat":null,
+               "DisplayPreviewCode":null,
+               "DistributionCode":"BK",
+               "DvdRegionCode":null,
+               "EbookEan":null,
+               "EditionDescription":null,
+               "EditionNumber":null,
+               "ExtendedStoreSubject":"B1-777AA",
+               "ExternalProductID":null,
+               "FinanceCode":"BK",
+               "FirstOnSaleDate":null,
+               "FormatId":null,
+               "FulfillmentCode":"IS",
+               "GeneralProperties":null,
+               "GiftWrapMessageId":2,
+               "GoogleCategoryCd":"Media > Books",
+               "HasGameNote":0,
+               "HasImage":null,
+               "HasSoundClip":0,
+               "IngestionDCMerchNum":null,
+               "IsAdditionalCharge":false,
+               "IsClassical":false,
+               "IsContentQuestioned":null,
+               "IsFreeProduct":false,
+               "IsRentable":null,
+               "IsStoreInventory":false,
+               "Isbn10":"0000000027",
+               "ItemQuantity":null,
+               "LanguageCode":"ENG",
+               "LanguageDesc":"English",
+               "LargePrintInd":"N",
+               "Lexile":"",
+               "LinkedProducts":null,
+               "ListEligibleID":1,
+               "MPFinanceCode":null,
+               "MPShipRestrictionCode":null,
+               "MPShippingCode":null,
+               "MediaClips":null,
+               "MerchandiseObjectID":null,
+               "NookExtrasProperties":null,
+               "NotSafeContentFlag":null,
+               "NumberOfPages":null,
+               "ObjectId":null,
+               "OldWorkId":1008932460,
+               "OriginalEAN":null,
+               "OriginalReleaseDate":null,
+               "ParentFormat":null,
+               "ParentSecondaryFormat":null,
+               "Partners":null,
+               "Platform":null,
+               "ProductCode":"BK",
+               "ProductFillCode":null,
+               "ProductFormatId":null,
+               "ProductMessage":null,
+               "ProductSubTypeCode":"B1",
+               "ProductTypeID":1,
+               "PromotionId":0,
+               "Promotions":null,
+               "PubStatusCode":"OSI",
+               "PubTrackCode":200,
+               "PublicDomainCd":null,
+               "PublicationDate":"2001-01-28T05:00:00.000Z",
+               "QuantityLimit":null,
+               "RentalRateId":null,
+               "RentalRates":null,
+               "ReplacedEan":null,
+               "RunTime":null,
+               "SalesModel":null,
+               "SalesTaxCode":"BK",
+               "SearchCode":"O ",
+               "SecondaryFormat":null,
+               "SellerId":null,
+               "SellerSKU":null,
+               "SeriesId":null,
+               "SeriesNumber":null,
+               "SeriesTitle":null,
+               "ServiceShipPromoCode":null,
+               "ShipRestrictionCode":0,
+               "ShippingCode":"BK",
+               "ShippingCost":"1.0000",
+               "Size":null,
+               "SkuType":"book",
+               "SoldBy":null,
+               "SortFormatId":null,
+               "Source":"T",
+               "StreetDate":null,
+               "SubCategoryCode":null,
+               "SubPriceStartDate":null,
+               "SubTitle":null,
+               "SubjectCode":null,
+               "SubscriptionEan":null,
+               "TextbookCode":null,
+               "TextbookProperties":null,
+               "Title":"Standing Orders Statemans Yearbook",
+               "TitlePrefix":null,
+               "TitleSeq":8932460,
+               "TotalRatings":null,
+               "Tracks":null,
+               "UrlKeywords":"Standing-Orders-Statemans-Yearbook/Order-Standing",
+               "UsedTypeCode":"N",
+               "VendorDesc":null,
+               "VendorDistribId":null,
+               "VendorTypeId":null,
+               "VideoAlternateTitles":null,
+               "VideoAspectRatios":null,
+               "VideoAudioLanguage":null,
+               "VideoEditionNames":null,
+               "VideoScreenTypes":null,
+               "VideoSoundTypes":null,
+               "VideoSubtitleLanguages":null,
+               "WLPartnerMask":null,
+               "WorkId":1008932460,
+               "_id":9780000000026,
+               "ean":9780000000026,
+               "rentInvControlCd":null
+            }
+         },
+         {  
+            "volatileData":{  
+               "Audit":{  
+                  "PcnVolatiledata":123456,
+                  "PcnBusinessRule":123456,
+                  "LastProcCntrlNo":123456,
+                  "UpdDtime":"2014-08-05T18:15:26.379Z",
+                  "AddDtime":"2014-06-13T12:36:49.036Z"
+               },
+               "BaseRentalPrice":null,
+               "BnPrice":0.1,
+               "Cost":null,
+               "CustomerSavesAmt":0,
+               "CustomerSavesPct":0,
+               "DeliveryCode":1,
+               "DiscountCode":7000000,
+               "ExpectedShipDate":null,
+               "FeedFilter":4,
+               "FeedFilterDate":"2014-06-07T15:53:59.373Z",
+               "ForSale":"N",
+               "IndexInSearch":"N",
+               "InventoryControl":"A",
+               "IsFree":false,
+               "LocationMask":"4611699212566921226",
+               "MSRP":0.1,
+               "MarketPlaceAvailable":false,
+               "MinMarketplacePrice":null,
+               "MinMarketplacePriceNew":null,
+               "ProductDisplayFlag":"D",
+               "RetailPrice":0.1,
+               "ShippableFlag":"Y",
+               "WebFlag":"N",
+               "_id":9780000000026,
+               "ean":9780000000026,
+               "isDisabled":false
+            }
+         },
+         {  
+            "error":"Id/Ids [9780000000026] can not be found in collection images"
+         },
+         {  
+            "productCategories":{  
+               "Audit":{  
+                  "LastProcCntrlNo":37821638,
+                  "UpdDtime":"2014-10-10T12:45:22.031Z",
+                  "AddDtime":"2014-09-10T01:02:08.519Z"
+               },
+               "ProductCategoryLeafList":[  
+                  {  
+                     "categoryId":"2796683",
+                     "categoryName":"Books",
+                     "typeId":128
+                  },
+                  {  
+                     "categoryId":"2798851",
+                     "categoryName":"Print Books",
+                     "typeId":128
+                  }
+               ],
+               "ProductCategoryList":[  
+                  {  
+                     "categoryId":"2796683",
+                     "isSignificant":false
+                  },
+                  {  
+                     "categoryId":"2798851",
+                     "isSignificant":false
+                  }
+               ],
+               "_id":9780000000026,
+               "ean":9780000000026
+            }
+         }
+      ]
+   }
+]
+
+
+ 
+Contributor
+
+Get Request URL:
+http://[server]:9899/contributor
+
+Parameters
+Required	Name	Description
+Required	ids	Comma separated list of contributor ids
+
+Get request example
+http://dwepdssv01.hq.bn-corp.com:9899/contributor?ids=22,23,34,99999999999
+
+[  
+   {  
+      "id":22,
+      "data":[  
+         {  
+            "contributors":{  
+               "_id":22,
+               "contributorId":22,
+               "FirstName":"Claus",
+               "LastName":"Adam",
+               "FullName":"Claus Adam ",
+               "BirthDate":null,
+               "BirthLocation":"",
+               "DeathDate":null,
+               "DeathLocation":"",
+               "Education":"",
+               "Hometown":"",
+               "ShortDescription":"",
+               "Website":"",
+               "AlternateNames":"",
+               "Notes":"<notes></notes>",
+               "DynamicImages":null,
+               "Images":null,
+               "Audit":{  
+                  "PcnContributor":null,
+                  "PcnOracleContributor":987655,
+                  "PcnContributorImage":null,
+                  "LastProcCntrlNo":987655,
+                  "UpdDtime":"2014-11-26T15:22:44.428Z",
+                  "AddDtime":"2014-11-26T15:22:44.428Z"
+               }
+            }
+         }
+      ]
+   },
+   {  
+      "id":23,
+      "data":[  
+         {  
+            "contributors":{  
+               "_id":23,
+               "contributorId":23,
+               "FirstName":"",
+               "LastName":"Adams",
+               "FullName":"Adams ",
+               "BirthDate":null,
+               "BirthLocation":"",
+               "DeathDate":null,
+               "DeathLocation":"",
+               "Education":"",
+               "Hometown":"",
+               "ShortDescription":"",
+               "Website":"",
+               "AlternateNames":"",
+               "Notes":"<notes></notes>",
+               "DynamicImages":null,
+               "Images":null,
+               "Audit":{  
+                  "PcnContributor":null,
+                  "PcnOracleContributor":987655,
+                  "PcnContributorImage":null,
+                  "LastProcCntrlNo":987655,
+                  "UpdDtime":"2014-11-26T15:22:44.444Z",
+                  "AddDtime":"2014-11-26T15:22:44.444Z"
+               }
+            }
+         }
+      ]
+   },
+   {  
+      "id":34,
+      "data":[  
+         {  
+            "contributors":{  
+               "_id":34,
+               "contributorId":34,
+               "FirstName":"E",
+               "LastName":"Field",
+               "FullName":"E Field ",
+               "BirthDate":null,
+               "BirthLocation":"",
+               "DeathDate":null,
+               "DeathLocation":"",
+               "Education":"",
+               "Hometown":"",
+               "ShortDescription":"",
+               "Website":"",
+               "AlternateNames":"",
+               "Notes":"<notes></notes>",
+               "DynamicImages":null,
+               "Images":null,
+               "Audit":{  
+                  "PcnContributor":null,
+                  "PcnOracleContributor":987655,
+                  "PcnContributorImage":null,
+                  "LastProcCntrlNo":987655,
+                  "UpdDtime":"2014-11-26T15:22:44.803Z",
+                  "AddDtime":"2014-11-26T15:22:44.803Z"
+               }
+            }
+         }
+      ]
+   },
+   {  
+      "id":99999999999,
+      "data":[  
+         {  
+            "error":"Id [99999999999] can not be found in collection contributors"
+         }
+      ]
+   }
+]
+
+
+Contributorlist
+
+Post Request URL:
+http:/[server]:9899/contributorlist
+Parameters
+
+Required	Name	Description
+Required	ids	
+Comma separated list of contributor ids
+
+Post request example
+http://dwepdssv01.hq.bn-corp.com:9899/contributorlist
+ 
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+ids=23,22,34,9999999999
+
+[  
+   {  
+      "id":22,
+      "data":[  
+         {  
+            "contributors":{  
+               "_id":22,
+               "contributorId":22,
+               "FirstName":"Claus",
+               "LastName":"Adam",
+               "FullName":"Claus Adam ",
+               "BirthDate":null,
+               "BirthLocation":"",
+               "DeathDate":null,
+               "DeathLocation":"",
+               "Education":"",
+               "Hometown":"",
+               "ShortDescription":"",
+               "Website":"",
+               "AlternateNames":"",
+               "Notes":"<notes></notes>",
+               "DynamicImages":null,
+               "Images":null,
+               "Audit":{  
+                  "PcnContributor":null,
+                  "PcnOracleContributor":987655,
+                  "PcnContributorImage":null,
+                  "LastProcCntrlNo":987655,
+                  "UpdDtime":"2014-11-26T15:22:44.428Z",
+                  "AddDtime":"2014-11-26T15:22:44.428Z"
+               }
+            }
+         }
+      ]
+   },
+   {  
+      "id":23,
+      "data":[  
+         {  
+            "contributors":{  
+               "_id":23,
+               "contributorId":23,
+               "FirstName":"",
+               "LastName":"Adams",
+               "FullName":"Adams ",
+               "BirthDate":null,
+               "BirthLocation":"",
+               "DeathDate":null,
+               "DeathLocation":"",
+               "Education":"",
+               "Hometown":"",
+               "ShortDescription":"",
+               "Website":"",
+               "AlternateNames":"",
+               "Notes":"<notes></notes>",
+               "DynamicImages":null,
+               "Images":null,
+               "Audit":{  
+                  "PcnContributor":null,
+                  "PcnOracleContributor":987655,
+                  "PcnContributorImage":null,
+                  "LastProcCntrlNo":987655,
+                  "UpdDtime":"2014-11-26T15:22:44.444Z",
+                  "AddDtime":"2014-11-26T15:22:44.444Z"
+               }
+            }
+         }
+      ]
+   },
+   {  
+      "id":34,
+      "data":[  
+         {  
+            "contributors":{  
+               "_id":34,
+               "contributorId":34,
+               "FirstName":"E",
+               "LastName":"Field",
+               "FullName":"E Field ",
+               "BirthDate":null,
+               "BirthLocation":"",
+               "DeathDate":null,
+               "DeathLocation":"",
+               "Education":"",
+               "Hometown":"",
+               "ShortDescription":"",
+               "Website":"",
+               "AlternateNames":"",
+               "Notes":"<notes></notes>",
+               "DynamicImages":null,
+               "Images":null,
+               "Audit":{  
+                  "PcnContributor":null,
+                  "PcnOracleContributor":987655,
+                  "PcnContributorImage":null,
+                  "LastProcCntrlNo":987655,
+                  "UpdDtime":"2014-11-26T15:22:44.803Z",
+                  "AddDtime":"2014-11-26T15:22:44.803Z"
+               }
+            }
+         }
+      ]
+   },
+   {  
+      "id":9999999999,
+      "data":[  
+         {  
+            "error":"Id [9999999999] can not be found in collection contributors"
+         }
+      ]
+   }
+]
+
+Back to top

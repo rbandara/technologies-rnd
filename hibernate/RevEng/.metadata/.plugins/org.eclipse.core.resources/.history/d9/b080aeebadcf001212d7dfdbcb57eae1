@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Etmservicetranslog" table="etmservicetranslog" catalog="rplan">
+        <id name="uuid" type="string">
+            <column name="UUID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="transactiontype" type="string">
+            <column name="TRANSACTIONTYPE" length="1" not-null="true">
+                <comment>Q for Query; S for Submittal; N for Notification</comment>
+            </column>
+        </property>
+        <property name="eventtime" type="timestamp">
+            <column name="EVENTTIME" length="0" not-null="true" />
+        </property>
+        <property name="submittername" type="string">
+            <column name="SUBMITTERNAME" length="100" not-null="true">
+                <comment>submitted the transaction</comment>
+            </column>
+        </property>
+        <property name="error" type="boolean">
+            <column name="ERROR" not-null="true">
+                <comment>transacation failed.</comment>
+            </column>
+        </property>
+        <property name="archived" type="boolean">
+            <column name="ARCHIVED" not-null="true">
+                <comment>transaction has been archived.</comment>
+            </column>
+        </property>
+        <property name="hostname" type="string">
+            <column name="HOSTNAME" length="60" />
+        </property>
+        <property name="operationname" type="string">
+            <column name="OPERATIONNAME" length="100" not-null="true">
+                <comment>operation being executed.</comment>
+            </column>
+        </property>
+        <property name="sourceinterface" type="string">
+            <column name="SOURCEINTERFACE" length="30" not-null="true">
+                <comment>source front end where the transaction came from. Could have various values depending on the system, such as "GUI" or "Web Service".</comment>
+            </column>
+        </property>
+        <property name="appname" type="string">
+            <column name="APPNAME" length="100" not-null="true" />
+        </property>
+        <property name="processingtime" type="java.lang.Double">
+            <column name="PROCESSINGTIME" precision="22" scale="0">
+                <comment>to complete the transaction</comment>
+            </column>
+        </property>
+        <property name="request" type="string">
+            <column name="REQUEST" />
+        </property>
+        <property name="reply" type="string">
+            <column name="REPLY" />
+        </property>
+        <property name="errortext" type="string">
+            <column name="ERRORTEXT" />
+        </property>
+    </class>
+</hibernate-mapping>

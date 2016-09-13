@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 1:28:25 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esientity" table="ESIENTITY">
+        <comment>This entity stores the entities that are managed in ESI. An entity can be grouped based on its Category (mandatory) and Type (optional).</comment>
+        <id name="entityid" type="big_decimal">
+            <column name="ENTITYID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="esientitycategory" class="Esientitycategory" fetch="select">
+            <column name="ENTITYCATEGORY" length="20" not-null="true" />
+        </many-to-one>
+        <property name="entitytype" type="string">
+            <column name="ENTITYTYPE" length="20" />
+        </property>
+        <property name="assetid" type="big_decimal">
+            <column name="ASSETID" precision="22" scale="0">
+                <comment>Unique identifier for the CAMS/MDB resource</comment>
+            </column>
+        </property>
+        <set name="esirelationshipentitiesForToentityid" table="ESIRELATIONSHIPENTITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TOENTITYID" precision="22" scale="0" not-null="true">
+                    <comment>The entity at the next higher level of the FromEntityId in the relationship tree.</comment>
+                </column>
+            </key>
+            <one-to-many class="Esirelationshipentity" />
+        </set>
+        <set name="esirelationshipentitiesForFromentityid" table="ESIRELATIONSHIPENTITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FROMENTITYID" precision="22" scale="0" not-null="true">
+                    <comment>The entity at the next lower level to the ToEntityId in the relationship tree.</comment>
+                </column>
+            </key>
+            <one-to-many class="Esirelationshipentity" />
+        </set>
+    </class>
+</hibernate-mapping>

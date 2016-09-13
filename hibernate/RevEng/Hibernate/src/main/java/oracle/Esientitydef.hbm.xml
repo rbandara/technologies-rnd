@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2013 9:28:29 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esientitydef" table="ESIENTITYDEF">
+        <comment>This entity stores the time-varying information of an entity.</comment>
+        <composite-id name="id" class="EsientitydefId">
+            <key-property name="entityid" type="big_decimal">
+                <column name="ENTITYID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="terminationdate" type="date">
+                <column name="TERMINATIONDATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esientity" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="effectivedate" type="date">
+            <column name="EFFECTIVEDATE" length="7" not-null="true" />
+        </property>
+        <property name="entityname" type="string">
+            <column name="ENTITYNAME" length="100" not-null="true">
+                <comment>The name for the load forecast area. This is a unique identifier.</comment>
+            </column>
+        </property>
+        <property name="mvarating" type="big_decimal">
+            <column name="MVARATING" precision="22" scale="0" />
+        </property>
+        <property name="ispublic" type="java.lang.Boolean">
+            <column name="ISPUBLIC" precision="1" scale="0">
+                <comment>When entity is marked as public i.e. set to 1, participant will have read access to this entity without specific granted authorization.</comment>
+            </column>
+        </property>
+        <property name="terminated" type="boolean">
+            <column name="TERMINATED" precision="1" scale="0" not-null="true">
+                <comment>Flag to indicate logical termination of an entity. Default is 0</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <property name="location" type="string">
+            <column name="LOCATION" length="100" />
+        </property>
+        <property name="aor1" type="string">
+            <column name="AOR1" length="8" />
+        </property>
+        <property name="aor2" type="string">
+            <column name="AOR2" length="8" />
+        </property>
+        <property name="aor3" type="string">
+            <column name="AOR3" length="8" />
+        </property>
+        <property name="aor4" type="string">
+            <column name="AOR4" length="8" />
+        </property>
+        <property name="aor5" type="string">
+            <column name="AOR5" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

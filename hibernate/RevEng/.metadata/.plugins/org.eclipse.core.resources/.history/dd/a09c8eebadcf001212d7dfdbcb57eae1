@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esiexceptionparameter" table="esiexceptionparameter" catalog="rplan">
+        <id name="exceptionparameterid" type="double">
+            <column name="EXCEPTIONPARAMETERID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="esientity" class="Esientity" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="esiexceptiondefinition" class="Esiexceptiondefinition" fetch="select">
+            <column name="EXCEPTIONTYPE" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esischeduletype" class="Esischeduletype" fetch="select">
+            <column name="SCHEDULETYPE" length="10" />
+        </many-to-one>
+        <many-to-one name="esiprovider" class="Esiprovider" fetch="select">
+            <column name="PROVIDERID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <property name="starttime" type="java.lang.Double">
+            <column name="STARTTIME" precision="22" scale="0" />
+        </property>
+        <property name="endtime" type="java.lang.Double">
+            <column name="ENDTIME" precision="22" scale="0" />
+        </property>
+        <property name="highlimit" type="java.lang.Double">
+            <column name="HIGHLIMIT" precision="22" scale="0" />
+        </property>
+        <property name="lowlimit" type="java.lang.Double">
+            <column name="LOWLIMIT" precision="22" scale="0" />
+        </property>
+        <property name="ispercentlimit" type="boolean">
+            <column name="ISPERCENTLIMIT" not-null="true">
+                <comment>Set to 1 if the limits are percent limits; 0 if they are absoluate</comment>
+            </column>
+        </property>
+        <property name="alarmcategory" type="string">
+            <column name="ALARMCATEGORY" length="10">
+                <comment>new WindInt column</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

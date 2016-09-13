@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esiprovider" table="esiprovider" catalog="rplan">
+        <id name="providerid" type="java.lang.Double">
+            <column name="PROVIDERID" precision="22" scale="0" />
+            <generator class="identity" />
+        </id>
+        <property name="targetentitycategory" type="string">
+            <column name="TARGETENTITYCATEGORY" length="20">
+                <comment>Entity category that the provider engine is providing data for.</comment>
+            </column>
+        </property>
+        <set name="esiexceptionparameters" table="esiexceptionparameter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROVIDERID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="Esiexceptionparameter" />
+        </set>
+        <set name="esiproviderdefs" table="esiproviderdef" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROVIDERID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esiproviderdef" />
+        </set>
+        <set name="esialarms" table="esialarm" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROVIDERID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="Esialarm" />
+        </set>
+        <set name="esicompositeweightingfactorsForTargetproviderid" table="esicompositeweightingfactor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TARGETPROVIDERID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esicompositeweightingfactor" />
+        </set>
+        <set name="esiinputschedules" table="esiinputschedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROVIDERID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esiinputschedule" />
+        </set>
+        <set name="esicompositeweightingfactorsForSourceproviderid" table="esicompositeweightingfactor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SOURCEPROVIDERID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esicompositeweightingfactor" />
+        </set>
+        <set name="esimergedschedules" table="esimergedschedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROVIDERID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esimergedschedule" />
+        </set>
+    </class>
+</hibernate-mapping>

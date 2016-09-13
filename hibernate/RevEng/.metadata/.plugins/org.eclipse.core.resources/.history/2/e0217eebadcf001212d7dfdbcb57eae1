@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esialarm" table="esialarm" catalog="rplan">
+        <id name="alarmid" type="java.lang.Double">
+            <column name="ALARMID" precision="22" scale="0" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="esientity" class="Esientity" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="esiexceptiondefinition" class="Esiexceptiondefinition" fetch="select">
+            <column name="EXCEPTIONTYPE" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esischeduletype" class="Esischeduletype" fetch="select">
+            <column name="SCHEDULETYPE" length="10" />
+        </many-to-one>
+        <many-to-one name="esiprovider" class="Esiprovider" fetch="select">
+            <column name="PROVIDERID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="posttime" type="timestamp">
+            <column name="POSTTIME" length="0" not-null="true">
+                <comment>the alarm was posted to the table.</comment>
+            </column>
+        </property>
+        <property name="alarmmessage" type="string">
+            <column name="ALARMMESSAGE" length="4000" not-null="true">
+                <comment>age.</comment>
+            </column>
+        </property>
+        <property name="location" type="string">
+            <column name="LOCATION" length="100" />
+        </property>
+        <property name="aor1" type="string">
+            <column name="AOR1" length="8" />
+        </property>
+        <property name="aor2" type="string">
+            <column name="AOR2" length="8" />
+        </property>
+        <property name="aor3" type="string">
+            <column name="AOR3" length="8" />
+        </property>
+        <property name="aor4" type="string">
+            <column name="AOR4" length="8" />
+        </property>
+        <property name="aor5" type="string">
+            <column name="AOR5" length="8" />
+        </property>
+        <property name="reasonid" type="java.lang.Double">
+            <column name="REASONID" precision="22" scale="0">
+                <comment>new WindInt column</comment>
+            </column>
+        </property>
+        <property name="alarmcategory" type="string">
+            <column name="ALARMCATEGORY" length="10">
+                <comment>new WindInt column</comment>
+            </column>
+        </property>
+        <property name="isreturntonormal" type="java.lang.Boolean">
+            <column name="ISRETURNTONORMAL">
+                <comment>new WindInt column</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

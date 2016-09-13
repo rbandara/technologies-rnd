@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Wialarmcontrol" table="wialarmcontrol" catalog="rplan">
+        <composite-id name="id" class="WialarmcontrolId">
+            <key-property name="alarmcategory" type="string">
+                <column name="ALARMCATEGORY" length="10" />
+            </key-property>
+            <key-property name="entityid" type="double">
+                <column name="ENTITYID" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="wialarmcategory" class="Wialarmcategory" update="false" insert="false" fetch="select">
+            <column name="ALARMCATEGORY" length="10" not-null="true">
+                <comment>A category identifying an alarm of its originating source and its context.</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="esientity" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" not-null="true">
+                <comment>The entity that the control parameters are maintained for raising the appropriate alarm.</comment>
+            </column>
+        </many-to-one>
+        <property name="isreturntonormal" type="boolean">
+            <column name="ISRETURNTONORMAL" not-null="true">
+                <comment>A flag indicating the alarm category's current state i.e. 0 - Off normal alarm, 1 - Return to normal alarm</comment>
+            </column>
+        </property>
+        <property name="returntonormalcount" type="double">
+            <column name="RETURNTONORMALCOUNT" precision="22" scale="0" not-null="true">
+                <comment>Number of successive passed checks</comment>
+            </column>
+        </property>
+        <property name="offnormalcount" type="double">
+            <column name="OFFNORMALCOUNT" precision="22" scale="0" not-null="true">
+                <comment>Number of successive passed checks</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

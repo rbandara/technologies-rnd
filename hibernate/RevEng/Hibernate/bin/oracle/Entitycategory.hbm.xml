@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 1:28:25 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esientitycategory" table="ESIENTITYCATEGORY">
+        <comment>This entity stores the valid entity categories. An entity must have a category.</comment>
+        <id name="entitycategory" type="string">
+            <column name="ENTITYCATEGORY" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="entitycategoryname" type="string">
+            <column name="ENTITYCATEGORYNAME" length="100" not-null="true" unique="true">
+                <comment>A long name for the category.</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <set name="esientities" table="ESIENTITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ENTITYCATEGORY" length="20" not-null="true" />
+            </key>
+            <one-to-many class="Esientity" />
+        </set>
+        <set name="esirelationshipsForToentitycategory" table="ESIRELATIONSHIP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TOENTITYCATEGORY" length="20" not-null="true">
+                    <comment>Entity category of the parent entity</comment>
+                </column>
+            </key>
+            <one-to-many class="Esirelationship" />
+        </set>
+        <set name="esirelationshipsForFromentitycategory" table="ESIRELATIONSHIP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FROMENTITYCATEGORY" length="20" not-null="true">
+                    <comment>Entity category of the child entity</comment>
+                </column>
+            </key>
+            <one-to-many class="Esirelationship" />
+        </set>
+    </class>
+</hibernate-mapping>

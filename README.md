@@ -1,0 +1,1 @@
+This contains sample projects for the technologies I am interested in ( at least was interested in some point of time)

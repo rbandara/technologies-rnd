@@ -1,0 +1,23 @@
+
+# files
+.DS_Store
+.idea
+.git
+.class
+*.iml
+.classpath
+.project
+.rdb
+.log
+.gradle
+
+# folders
+target
+.idea/*.*
+.svn
+.settings
+temp
+doc
+
+
+

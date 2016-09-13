@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Etmoption" table="etmoption" catalog="rplan">
+        <id name="optionname" type="string">
+            <column name="OPTIONNAME" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="optiontype" type="string">
+            <column name="OPTIONTYPE" length="30" not-null="true">
+                <comment>the option. It is used for validation of the option value.</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <property name="optiongroup" type="string">
+            <column name="OPTIONGROUP" length="4000">
+                <comment>string used for grouping options.</comment>
+            </column>
+        </property>
+        <property name="showtouser" type="byte">
+            <column name="SHOWTOUSER" not-null="true">
+                <comment>option is viewable from the MOI.</comment>
+            </column>
+        </property>
+        <property name="uom" type="string">
+            <column name="UOM" length="30">
+                <comment>of the option. There is no database validation based on the UOM.</comment>
+            </column>
+        </property>
+        <set name="etmoptiondefs" table="etmoptiondef" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OPTIONNAME" length="40" not-null="true" />
+            </key>
+            <one-to-many class="Etmoptiondef" />
+        </set>
+    </class>
+</hibernate-mapping>

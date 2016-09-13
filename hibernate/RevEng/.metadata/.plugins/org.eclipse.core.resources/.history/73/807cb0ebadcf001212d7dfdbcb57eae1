@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Etmservicetransparam" table="etmservicetransparam" catalog="rplan">
+        <composite-id name="id" class="EtmservicetransparamId">
+            <key-property name="uuid" type="string">
+                <column name="UUID" length="36" />
+            </key-property>
+            <key-property name="paramname" type="string">
+                <column name="PARAMNAME" length="100" />
+            </key-property>
+        </composite-id>
+        <property name="paramvalue" type="string">
+            <column name="PARAMVALUE" length="4000" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esireason" table="esireason" catalog="rplan">
+        <id name="reasonid" type="java.lang.Double">
+            <column name="REASONID" precision="22" scale="0" />
+            <generator class="identity" />
+        </id>
+        <property name="startdate" type="timestamp">
+            <column name="STARTDATE" length="0" not-null="true">
+                <comment>point of this schedule.</comment>
+            </column>
+        </property>
+        <property name="enddate" type="timestamp">
+            <column name="ENDDATE" length="0" not-null="true">
+                <comment>in this schedule.</comment>
+            </column>
+        </property>
+        <property name="computetime" type="timestamp">
+            <column name="COMPUTETIME" length="0" not-null="true">
+                <comment>the submitted schedule was calculated. This is used for versioning of the schedules.</comment>
+            </column>
+        </property>
+        <property name="receivetime" type="timestamp">
+            <column name="RECEIVETIME" length="0" not-null="true">
+                <comment>the schedule was received.</comment>
+            </column>
+        </property>
+        <property name="reasontype" type="string">
+            <column name="REASONTYPE" length="30">
+                <comment>that describes the schedule.</comment>
+            </column>
+        </property>
+        <property name="transactionloguuid" type="string">
+            <column name="TRANSACTIONLOGUUID" length="36">
+                <comment>to the submittal transaction log.</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="STATUS">
+                <comment>status reflects if a submission is success/accepted (0) or failed/rejected(1).</comment>
+            </column>
+        </property>
+        <set name="esiinputschedules" table="esiinputschedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REASONID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esiinputschedule" />
+        </set>
+    </class>
+</hibernate-mapping>

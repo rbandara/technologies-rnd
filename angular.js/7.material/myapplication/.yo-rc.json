@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "baseName": "jhipster",
+    "packageName": "com.bn.pds",
+    "packageFolder": "com/bn/pds",
+    "authenticationType": "xauth",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": "no",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "7",
+    "rememberMeKey": "96109b2fc2ea21e4e2f6f7069d6e27f8ab3754c0"
+  }
+}

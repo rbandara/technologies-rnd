@@ -1,0 +1,11 @@
+{
+	"name" : "mongo-rest",
+	"description" : "An API to expose Mongo collections",
+	"version" : "0.0.1",
+	"private" : true,
+	"dependencies" : {
+		"express" : "3.x",
+		"mongodb" : "*"
+	}
+
+}

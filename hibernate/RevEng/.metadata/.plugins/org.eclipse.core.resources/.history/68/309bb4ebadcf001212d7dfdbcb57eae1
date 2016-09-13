@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Wialarmcategory" table="wialarmcategory" catalog="rplan">
+        <id name="alarmcategory" type="string">
+            <column name="ALARMCATEGORY" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="alarmcategoryname" type="string">
+            <column name="ALARMCATEGORYNAME" length="100">
+                <comment>A short description of the alarm category</comment>
+            </column>
+        </property>
+        <property name="offnormalthreshold" type="double">
+            <column name="OFFNORMALTHRESHOLD" precision="22" scale="0" not-null="true">
+                <comment>The number of successive failed checks before alarm is raised.</comment>
+            </column>
+        </property>
+        <property name="rtnthreshold" type="double">
+            <column name="RTNTHRESHOLD" precision="22" scale="0" not-null="true">
+                <comment>The number of successive passed checks before alarm is returned to normal.</comment>
+            </column>
+        </property>
+        <property name="alarmmessage" type="string">
+            <column name="ALARMMESSAGE" length="4000">
+                <comment>Custom message string sent along with the alarm</comment>
+            </column>
+        </property>
+        <set name="wialarmcontrols" table="wialarmcontrol" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ALARMCATEGORY" length="10" not-null="true">
+                    <comment>A category identifying an alarm of its originating source and its context.</comment>
+                </column>
+            </key>
+            <one-to-many class="Wialarmcontrol" />
+        </set>
+    </class>
+</hibernate-mapping>

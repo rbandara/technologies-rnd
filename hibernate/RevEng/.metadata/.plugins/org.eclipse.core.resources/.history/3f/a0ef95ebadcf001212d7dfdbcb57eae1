@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esimergedschedule" table="esimergedschedule" catalog="rplan">
+        <id name="mergedscheduleid" type="java.lang.Double">
+            <column name="MERGEDSCHEDULEID" precision="22" scale="0" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="esientity" class="Esientity" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esischeduletype" class="Esischeduletype" fetch="select">
+            <column name="SCHEDULETYPE" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esiprovider" class="Esiprovider" fetch="select">
+            <column name="PROVIDERID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="override" type="boolean">
+            <column name="OVERRIDE" not-null="true">
+                <comment>merged schedule is an override schedule.</comment>
+            </column>
+        </property>
+        <property name="composite" type="boolean">
+            <column name="COMPOSITE" not-null="true">
+                <comment>merged schedule is a composite schedule.</comment>
+            </column>
+        </property>
+        <set name="esimergedschedulepoints" table="esimergedschedulepoint" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MERGEDSCHEDULEID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esimergedschedulepoint" />
+        </set>
+    </class>
+</hibernate-mapping>

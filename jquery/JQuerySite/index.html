@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+</head>
+<body>
+    <a href="http://jquery.com/">jQuery</a>
+    <script src="jquery.js"></script>
+    <script>
+ 
+    // Your code goes here.
+    window.onload = function() {
+ 
+        alert( "welcome" );
+ 
+    }	
+var myValue = [ 1, 2, 3 ];
+ 
+// Using JavaScript's typeof operator to test for primitive types:
+typeof myValue === "string"; // false
+typeof myValue === "number"; // false
+typeof myValue === "undefined"; // false
+typeof myValue === "boolean"; // false
+ 
+// Using strict equality operator to check for null:
+myValue === null; // false
+ 
+// Using jQuery's methods to check for non-primitive types:
+jQuery.isFunction( myValue ); // false
+jQuery.isPlainObject( myValue ); // false
+jQuery.isArray( myValue ); // true
+ 
+	
+
+    </script>
+</body>
+</html>

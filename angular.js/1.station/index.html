@@ -1,0 +1,142 @@
+<!doctype html>
+
+<html class="no-js" ng-app="WebplayerApp">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" ref="styles/carousel.css">
+    <script src="scripts/app.js"</script>
+    <script src="scripts/angular.js"</script>
+    <script src="scripts/controller/main.js"</script>
+  </head>
+
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Station 360</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">Preferences</a></li>
+                <li><a href="#signin">Sign In</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Carausol-->
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="images/listning_music.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Songs</h1>
+              <p>Note: If you're viewing this page via a URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/2.jpg" alt="Second slide">
+            <div class="carousel-caption">
+              <h1>News</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/3.jpg" alt="Third slide">
+           <div class="container">
+            <div class="carousel-caption">
+              <h1>Podcasts</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Features</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+
+<!-- trending audios -->
+
+<div controller="TrendingAudioCtrl">
+ <div class="container">
+      <div class="row">
+          <h2>Trending Audio</h2>
+	<table class="table table-condensed">
+ 		<tr>
+			<td>Duka hadu dena raye..</td>
+			<td><b>30248</b> likes </td>		
+			<td>
+				play <a href="default.asp">
+				  <img src="images/play_256.png" alt="play" style="width:20px;height:20px;border:0"></a>				
+			</td>
+		</tr>
+		<tr>
+			<td>Bambara pahasa...</td>
+			<td><b>32348</b> likes </td>		
+			<td>
+				play <a href="default.asp">
+				  <img src="images/play_256.png" alt="play" style="width:20px;height:20px;border:0"></a>				
+			</td>
+		</tr>
+		<tr>
+			<td>Nabara goyamata</td>
+			<td><b>32348</b> likes </td>		
+			<td>
+				play <a href="default.asp">
+				  <img src="images/play_256.png" alt="play" style="width:20px;height:20px;border:0"></a>				
+			</td>
+		</tr>
+		<tr>
+			<td>Pile padura</td>
+			<td><b>32348</b> likes </td>		
+			<td>
+				play <a href="default.asp">
+				  <img src="images/play_256.png" alt="play" style="width:20px;height:20px;border:0"></a>				
+			</td>
+		</tr>
+	</table>
+      </div>
+</div>
+      <!-- /END THE FEATURETTES -->
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+     <script src="scripts/app.js"></script>
+     <script src="scripts/controllers/main.js"></script>
+     <script src="scripts/controllers/about.js"></script>
+</body>
+</html>

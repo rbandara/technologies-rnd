@@ -1,0 +1,16 @@
+<project>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.webcrawler</groupId>
+    <artifactId>webcrawler</artifactId>
+    <version>1.0</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.htmlparser</groupId>
+            <artifactId>htmlparser</artifactId>
+            <version>1.6</version>
+        </dependency>
+    </dependencies>
+
+</project>

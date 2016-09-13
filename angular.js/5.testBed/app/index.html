@@ -1,0 +1,23 @@
+<html ng-app> <head>
+    <script src="angular.js"></script>
+    <script src="controller.js"></script> </head>
+<body>
+<div ng-controller='HelloController'>
+    <!--<input ng-model='greeting.text'>-->
+    <!--<p>{{greeting.text}}, World</p> </div>-->
+
+    <div ng-repeat="song in list">
+        <a href="#" ng-click="play(song.title)"><div>{{song.title}}</div></a>
+    </div>
+
+
+
+    <p>
+        <audio controls>
+            <source src="{{$scope.filename}}" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+
+    </p>
+</body>
+</html>

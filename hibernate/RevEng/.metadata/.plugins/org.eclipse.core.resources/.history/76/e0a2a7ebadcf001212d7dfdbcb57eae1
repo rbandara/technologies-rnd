@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esischeduletype" table="esischeduletype" catalog="rplan">
+        <id name="scheduletype" type="string">
+            <column name="SCHEDULETYPE" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="schedulename" type="string">
+            <column name="SCHEDULENAME" length="100" not-null="true" unique="true">
+                <comment>the schedule type.</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <set name="esiconfidenceintervalsForScheduletype" table="esiconfidenceinterval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" not-null="true">
+                    <comment>schedule type.</comment>
+                </column>
+            </key>
+            <one-to-many class="Esiconfidenceinterval" />
+        </set>
+        <set name="esiinputschedules" table="esiinputschedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="Esiinputschedule" />
+        </set>
+        <set name="esimergedschedules" table="esimergedschedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="Esimergedschedule" />
+        </set>
+        <set name="esiconfidenceintervalsForMaxscheduletype" table="esiconfidenceinterval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MAXSCHEDULETYPE" length="10" not-null="true">
+                    <comment>that represents the maximum value of the confidence Interval</comment>
+                </column>
+            </key>
+            <one-to-many class="Esiconfidenceinterval" />
+        </set>
+        <set name="esicompositeweightingfactorsForSourcescheduletype" table="esicompositeweightingfactor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SOURCESCHEDULETYPE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="Esicompositeweightingfactor" />
+        </set>
+        <set name="esicompositeweightingfactorsForTargetscheduletype" table="esicompositeweightingfactor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TARGETSCHEDULETYPE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="Esicompositeweightingfactor" />
+        </set>
+        <set name="esiconfidenceintervalsForMinscheduletype" table="esiconfidenceinterval" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MINSCHEDULETYPE" length="10" not-null="true">
+                    <comment>that represents the minimum value of the confidence Interval</comment>
+                </column>
+            </key>
+            <one-to-many class="Esiconfidenceinterval" />
+        </set>
+        <set name="esialarms" table="esialarm" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" />
+            </key>
+            <one-to-many class="Esialarm" />
+        </set>
+        <set name="esicombinationfactorsForScheduletype" table="esicombinationfactor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" not-null="true">
+                    <comment>values are linear combination of other schedules (sourcescheduletype).</comment>
+                </column>
+            </key>
+            <one-to-many class="Esicombinationfactor" />
+        </set>
+        <set name="esiactualschedules" table="esiactualschedule" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" />
+            </key>
+            <one-to-many class="Esiactualschedule" />
+        </set>
+        <set name="esicombinationfactorsForSourcescheduletype" table="esicombinationfactor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SOURCESCHEDULETYPE" length="10" not-null="true">
+                    <comment>to calculate a new schedule.</comment>
+                </column>
+            </key>
+            <one-to-many class="Esicombinationfactor" />
+        </set>
+        <set name="esiexceptionparameters" table="esiexceptionparameter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SCHEDULETYPE" length="10" />
+            </key>
+            <one-to-many class="Esiexceptionparameter" />
+        </set>
+    </class>
+</hibernate-mapping>

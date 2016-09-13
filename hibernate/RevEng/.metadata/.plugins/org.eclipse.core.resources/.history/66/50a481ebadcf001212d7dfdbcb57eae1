@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esicompositeweightingfactor" table="esicompositeweightingfactor" catalog="rplan">
+        <composite-id name="id" class="EsicompositeweightingfactorId">
+            <key-property name="targetproviderid" type="double">
+                <column name="TARGETPROVIDERID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="sourceproviderid" type="double">
+                <column name="SOURCEPROVIDERID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="targetscheduletype" type="string">
+                <column name="TARGETSCHEDULETYPE" length="10" />
+            </key-property>
+            <key-property name="sourcescheduletype" type="string">
+                <column name="SOURCESCHEDULETYPE" length="10" />
+            </key-property>
+            <key-property name="startminute" type="double">
+                <column name="STARTMINUTE" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esischeduletypeBySourcescheduletype" class="Esischeduletype" update="false" insert="false" fetch="select">
+            <column name="SOURCESCHEDULETYPE" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esiproviderByTargetproviderid" class="Esiprovider" update="false" insert="false" fetch="select">
+            <column name="TARGETPROVIDERID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esiproviderBySourceproviderid" class="Esiprovider" update="false" insert="false" fetch="select">
+            <column name="SOURCEPROVIDERID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esischeduletypeByTargetscheduletype" class="Esischeduletype" update="false" insert="false" fetch="select">
+            <column name="TARGETSCHEDULETYPE" length="10" not-null="true" />
+        </many-to-one>
+        <property name="endminute" type="double">
+            <column name="ENDMINUTE" precision="22" scale="0" not-null="true">
+                <comment>for the weighting factor. Ending minutes are exclusive. For example, if EndMinute=10, then the weighting factor is used for the 9th minute, but not
+                10th.</comment>
+            </column>
+        </property>
+        <property name="weightingfactor" type="double">
+            <column name="WEIGHTINGFACTOR" precision="22" scale="0" not-null="true">
+                <comment>for the provider. Weighting factors will be normlaized during calculation of the composite schedule.</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

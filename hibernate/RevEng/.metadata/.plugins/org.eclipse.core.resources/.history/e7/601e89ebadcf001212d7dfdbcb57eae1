@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esientitydef" table="esientitydef" catalog="rplan">
+        <composite-id name="id" class="EsientitydefId">
+            <key-property name="entityid" type="double">
+                <column name="ENTITYID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="terminationdate" type="timestamp">
+                <column name="TERMINATIONDATE" length="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esientity" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="effectivedate" type="timestamp">
+            <column name="EFFECTIVEDATE" length="0" not-null="true" />
+        </property>
+        <property name="entityname" type="string">
+            <column name="ENTITYNAME" length="100" not-null="true">
+                <comment>load forecast area. This is a unique identifier.</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <property name="mvarating" type="java.lang.Double">
+            <column name="MVARATING" precision="22" scale="0" />
+        </property>
+        <property name="location" type="string">
+            <column name="LOCATION" length="100" />
+        </property>
+        <property name="aor1" type="string">
+            <column name="AOR1" length="8" />
+        </property>
+        <property name="aor2" type="string">
+            <column name="AOR2" length="8" />
+        </property>
+        <property name="aor3" type="string">
+            <column name="AOR3" length="8" />
+        </property>
+        <property name="aor4" type="string">
+            <column name="AOR4" length="8" />
+        </property>
+        <property name="aor5" type="string">
+            <column name="AOR5" length="8" />
+        </property>
+        <property name="ispublic" type="java.lang.Boolean">
+            <column name="ISPUBLIC" />
+        </property>
+    </class>
+</hibernate-mapping>

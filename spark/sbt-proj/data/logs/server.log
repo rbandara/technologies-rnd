@@ -1,0 +1,3 @@
+[LoggingInterceptor] (http-/0.0.0.0:8080-3) RESP-IP#127.0.0.1|METHOD#GET|PATH#/TextBookRentalInfo?ids=25192198144|95
+[LoggingInterceptor] (http-/0.0.0.0:8080-1) REQ-IP#127.0.0.1|METHOD#GET|PATH#/product?ids=30206730289
+[LoggingInterceptor] (http-/0.0.0.0:8080-1) RESP-IP#127.0.0.1|METHOD#GET|PATH#/product?ids=30206730289|50

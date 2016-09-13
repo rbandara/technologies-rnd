@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 1:28:25 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esirelationshiptype" table="ESIRELATIONSHIPTYPE">
+        <comment>This entity stores the valid relationship types.</comment>
+        <id name="relationshiptype" type="string">
+            <column name="RELATIONSHIPTYPE" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <set name="esirelationships" table="ESIRELATIONSHIP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RELATIONSHIPTYPE" length="20" not-null="true" />
+            </key>
+            <one-to-many class="Esirelationship" />
+        </set>
+    </class>
+</hibernate-mapping>

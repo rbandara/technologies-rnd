@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esimergedschedulepoint" table="esimergedschedulepoint" catalog="rplan">
+        <composite-id name="id" class="EsimergedschedulepointId">
+            <key-property name="mergedscheduleid" type="double">
+                <column name="MERGEDSCHEDULEID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="time" type="timestamp">
+                <column name="TIME" length="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esimergedschedule" class="Esimergedschedule" update="false" insert="false" fetch="select">
+            <column name="MERGEDSCHEDULEID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="value" type="double">
+            <column name="VALUE" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="computetime" type="timestamp">
+            <column name="COMPUTETIME" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

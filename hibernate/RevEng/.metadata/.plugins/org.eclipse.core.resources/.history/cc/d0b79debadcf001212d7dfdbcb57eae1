@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esiproviderdef" table="esiproviderdef" catalog="rplan">
+        <composite-id name="id" class="EsiproviderdefId">
+            <key-property name="providerid" type="double">
+                <column name="PROVIDERID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="terminationdate" type="timestamp">
+                <column name="TERMINATIONDATE" length="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esiprovider" class="Esiprovider" update="false" insert="false" fetch="select">
+            <column name="PROVIDERID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="effectivedate" type="timestamp">
+            <column name="EFFECTIVEDATE" length="0" not-null="true">
+                <comment>which this record becomes valid.</comment>
+            </column>
+        </property>
+        <property name="providername" type="string">
+            <column name="PROVIDERNAME" length="100" not-null="true">
+                <comment>the provider.</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="4000" />
+        </property>
+        <property name="basetime" type="double">
+            <column name="BASETIME" precision="22" scale="0" not-null="true">
+                <comment>first expected submittal time in a day. Base time is expressed in terms of minutes from 0 hour of the day.</comment>
+            </column>
+        </property>
+        <property name="periodicity" type="double">
+            <column name="PERIODICITY" precision="22" scale="0" not-null="true">
+                <comment>how often should the provider submit new schedules. This is expressed in terms of expected minutes between two consecutive submittals.</comment>
+            </column>
+        </property>
+        <property name="tolerence" type="double">
+            <column name="TOLERENCE" precision="22" scale="0" not-null="true">
+                <comment>the grace period for schedule submittals. It is expressed in minutes.</comment>
+            </column>
+        </property>
+        <property name="deactivate" type="boolean">
+            <column name="DEACTIVATE" not-null="true">
+                <comment>to 1, DSI will ignore submittals from this provider.</comment>
+            </column>
+        </property>
+        <property name="resolution" type="java.lang.Double">
+            <column name="RESOLUTION" precision="22" scale="0">
+                <comment>Granularity of the time series data is stored.</comment>
+            </column>
+        </property>
+        <property name="toforecasthorizon" type="java.lang.Double">
+            <column name="TOFORECASTHORIZON" precision="22" scale="0">
+                <comment>Start time of the forecast data relative to current time interval T.</comment>
+            </column>
+        </property>
+        <property name="fromforecasthorizon" type="java.lang.Double">
+            <column name="FROMFORECASTHORIZON" precision="22" scale="0">
+                <comment>End time of the forecast data relative to current time interval T.</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

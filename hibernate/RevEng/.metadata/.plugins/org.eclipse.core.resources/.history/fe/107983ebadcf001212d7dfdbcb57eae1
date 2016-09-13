@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esiconfidenceinterval" table="esiconfidenceinterval" catalog="rplan">
+        <composite-id name="id" class="EsiconfidenceintervalId">
+            <key-property name="confidencelevel" type="double">
+                <column name="CONFIDENCELEVEL" precision="22" scale="0" />
+            </key-property>
+            <key-property name="scheduletype" type="string">
+                <column name="SCHEDULETYPE" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esischeduletypeByMaxscheduletype" class="Esischeduletype" fetch="select">
+            <column name="MAXSCHEDULETYPE" length="10" not-null="true">
+                <comment>that represents the maximum value of the confidence Interval</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="esischeduletypeByScheduletype" class="Esischeduletype" update="false" insert="false" fetch="select">
+            <column name="SCHEDULETYPE" length="10" not-null="true">
+                <comment>schedule type.</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="esischeduletypeByMinscheduletype" class="Esischeduletype" fetch="select">
+            <column name="MINSCHEDULETYPE" length="10" not-null="true">
+                <comment>that represents the minimum value of the confidence Interval</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

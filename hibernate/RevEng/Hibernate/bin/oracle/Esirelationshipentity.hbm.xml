@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 12, 2013 9:28:29 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esirelationshipentity" table="ESIRELATIONSHIPENTITY">
+        <comment>This entity stores the from-to relationship of entities in a hierarchical relationship. An From entity may be linked to more than one To entity. An entity may
+        play the role of a From or To entity. Entities at the bottom of the hierarchy are those that are From entity only. These are "leaf" nodes in the relationship
+        tree.</comment>
+        <composite-id name="id" class="EsirelationshipentityId">
+            <key-property name="fromentityid" type="big_decimal">
+                <column name="FROMENTITYID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="terminationtime" type="date">
+                <column name="TERMINATIONTIME" length="7" />
+            </key-property>
+            <key-property name="relationshipid" type="big_decimal">
+                <column name="RELATIONSHIPID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="toentityid" type="big_decimal">
+                <column name="TOENTITYID" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esirelationship" class="Esirelationship" update="false" insert="false" fetch="select">
+            <column name="RELATIONSHIPID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esientityByToentityid" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="TOENTITYID" precision="22" scale="0" not-null="true">
+                <comment>The entity at the next higher level of the FromEntityId in the relationship tree.</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="esientityByFromentityid" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="FROMENTITYID" precision="22" scale="0" not-null="true">
+                <comment>The entity at the next lower level to the ToEntityId in the relationship tree.</comment>
+            </column>
+        </many-to-one>
+        <property name="effectivetime" type="date">
+            <column name="EFFECTIVETIME" length="7" not-null="true" />
+        </property>
+        <property name="factor" type="big_decimal">
+            <column name="FACTOR" precision="22" scale="0">
+                <comment>Factor may be used for aggregation or distribution of schedule data, depending on the relationship.</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

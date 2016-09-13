@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esirelationshipentity" table="esirelationshipentity" catalog="rplan">
+        <composite-id name="id" class="EsirelationshipentityId">
+            <key-property name="fromentityid" type="double">
+                <column name="FROMENTITYID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="terminationtime" type="timestamp">
+                <column name="TERMINATIONTIME" length="0" />
+            </key-property>
+            <key-property name="relationshipid" type="double">
+                <column name="RELATIONSHIPID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="toentityid" type="double">
+                <column name="TOENTITYID" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esirelationship" class="Esirelationship" update="false" insert="false" fetch="select">
+            <column name="RELATIONSHIPID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esientityByToentityid" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="TOENTITYID" precision="22" scale="0" not-null="true">
+                <comment>next higher level of the FromEntityId in the relationship tree.</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="esientityByFromentityid" class="Esientity" update="false" insert="false" fetch="select">
+            <column name="FROMENTITYID" precision="22" scale="0" not-null="true">
+                <comment>next lower level to the ToEntityId in the relationship tree.</comment>
+            </column>
+        </many-to-one>
+        <property name="effectivetime" type="timestamp">
+            <column name="EFFECTIVETIME" length="0" not-null="true" />
+        </property>
+        <property name="factor" type="java.lang.Double">
+            <column name="FACTOR" precision="22" scale="0">
+                <comment>for aggregation or distribution of schedule data, depending on the relationship.</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

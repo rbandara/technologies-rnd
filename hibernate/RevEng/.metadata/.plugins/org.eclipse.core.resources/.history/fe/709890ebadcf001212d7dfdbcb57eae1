@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esiinputschedule" table="esiinputschedule" catalog="rplan">
+        <id name="inputscheduleid" type="java.lang.Double">
+            <column name="INPUTSCHEDULEID" precision="22" scale="0" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="esientity" class="Esientity" fetch="select">
+            <column name="ENTITYID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esischeduletype" class="Esischeduletype" fetch="select">
+            <column name="SCHEDULETYPE" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esireason" class="Esireason" fetch="select">
+            <column name="REASONID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="esiprovider" class="Esiprovider" fetch="select">
+            <column name="PROVIDERID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="override" type="boolean">
+            <column name="OVERRIDE" not-null="true">
+                <comment>1 if the submitted schedule is an override schedule to all other providers"" submitted for this schedule type.</comment>
+            </column>
+        </property>
+        <property name="composite" type="boolean">
+            <column name="COMPOSITE" not-null="true">
+                <comment>1 if the schedule is a composite schedule for the schedule type.</comment>
+            </column>
+        </property>
+        <property name="computetime" type="timestamp">
+            <column name="COMPUTETIME" length="0" />
+        </property>
+        <set name="esiinputschedulepoints" table="esiinputschedulepoint" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INPUTSCHEDULEID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Esiinputschedulepoint" />
+        </set>
+    </class>
+</hibernate-mapping>

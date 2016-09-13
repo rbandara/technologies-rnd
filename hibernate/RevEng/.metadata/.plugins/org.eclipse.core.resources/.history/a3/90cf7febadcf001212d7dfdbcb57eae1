@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2013 12:43:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Esicombinationfactor" table="esicombinationfactor" catalog="rplan">
+        <composite-id name="id" class="EsicombinationfactorId">
+            <key-property name="scheduletype" type="string">
+                <column name="SCHEDULETYPE" length="10" />
+            </key-property>
+            <key-property name="sourcescheduletype" type="string">
+                <column name="SOURCESCHEDULETYPE" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="esischeduletypeBySourcescheduletype" class="Esischeduletype" update="false" insert="false" fetch="select">
+            <column name="SOURCESCHEDULETYPE" length="10" not-null="true">
+                <comment>to calculate a new schedule.</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="esischeduletypeByScheduletype" class="Esischeduletype" update="false" insert="false" fetch="select">
+            <column name="SCHEDULETYPE" length="10" not-null="true">
+                <comment>values are linear combination of other schedules (sourcescheduletype).</comment>
+            </column>
+        </many-to-one>
+        <property name="composite" type="boolean">
+            <column name="COMPOSITE" not-null="true">
+                <comment>1 if the source schedule is a composite schedule.</comment>
+            </column>
+        </property>
+        <property name="factor" type="double">
+            <column name="FACTOR" precision="22" scale="0" not-null="true">
+                <comment>applied to the source schedule value for calculation of the new schedule.</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
